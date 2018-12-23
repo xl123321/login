@@ -8,10 +8,10 @@ def check_net():
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36'}
     try:
         response = requests.get(url=url, headers=headers)
-        if '°Ù¶ÈÒ»ÏÂ' in response.content.decode():
-            return 'ÍøÂçÒÑ¾­Á¬½Ó'
+        if 'ç™¾åº¦ä¸€ä¸‹' in response.content.decode():
+            return 'ç½‘ç»œå·²ç»è¿æ¥'
     except requests.exceptions.ConnectionError:
-        return 'ÍøÂçÃ»ÓĞÁ¬½Ó'
+        return 'ç½‘ç»œæ²¡æœ‰è¿æ¥'
 
 
 def login(user, domain, psw):
@@ -28,12 +28,12 @@ def login(user, domain, psw):
 
 
 def deal_net():
-    if check_net() == 'ÍøÂçÒÑ¾­Á¬½Ó':
-        return 'ÍøÂçÒÑ¾­Á¬½Ó'
+    if check_net() == 'ç½‘ç»œå·²ç»è¿æ¥':
+        return 'ç½‘ç»œå·²ç»è¿æ¥'
     else:
-        u = input('ÊäÈëÕËºÅ£º')
-        d = input('ÊäÈëÔËÓªÉÌ(ÒÆ¶¯CMCC,ÁªÍ¨Unicom,µçĞÅChinaNet):')
-        p = input('ÊäÈëµÇÂ½ÃÜÂë:')
+        u = input('è¾“å…¥è´¦å·ï¼š')
+        d = input('è¾“å…¥è¿è¥å•†(ç§»åŠ¨CMCC,è”é€šUnicom,ç”µä¿¡ChinaNet):')
+        p = input('è¾“å…¥ç™»é™†å¯†ç :')
         result = login(u, d, p)
         return result.content.decode('unicode-escape')
 
